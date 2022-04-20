@@ -10,6 +10,20 @@
 
     <title>Hello, world!</title>
   </head>
+  
+  <script>
+    window.addEventListener('message', receiver, false);
+    function receiver(e) {
+      if (e.origin == '') {
+        if (e.data == 'Hola world') {
+           e.source.postMessage('Hola', e.origin);
+        } else {
+        alert(e.data);
+      }
+    }
+  }
+  </script>
+  
   <body>
     <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Trigger Modal in iFrame</button>
 
